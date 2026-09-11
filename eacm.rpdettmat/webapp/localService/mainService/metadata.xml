@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="SAP__analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AUTHORIZATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Authorization.V1" Alias="SAP__authorization"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="SAP__communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="SAP__personalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SUPPORT',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Support.v1" Alias="SAP__support"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.eacm.ui_rpdettmat.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="CommissionDetailType">
+                <Key>
+                    <PropertyRef Name="Vkorg"/>
+                    <PropertyRef Name="Vtweg"/>
+                    <PropertyRef Name="Zclpr"/>
+                    <PropertyRef Name="Vbeln"/>
+                    <PropertyRef Name="Posnr"/>
+                    <PropertyRef Name="Zcdaz"/>
+                    <PropertyRef Name="Zidag"/>
+                    <PropertyRef Name="Zidrg"/>
+                </Key>
+                <Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Vtweg" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Zclpr" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Posnr" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="Zcdaz" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Zidag" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Zidrg" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Fkdat" Type="Edm.Date"/>
+                <Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Bldat" Type="Edm.Date"/>
+                <Property Name="Kunrg" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Zamco" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="Zamcf" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="Zidfs" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Waerk" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Zzwaer" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Namea" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="Ztpag" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="ZtpagDoc" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Zdeag" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Vkgrp" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Vkbur" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Fkart" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Vbtyp" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Blart" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Budat" Type="Edm.Date"/>
+                <Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Ztprv" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Zdest" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ZstreDoc" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="ZstreDet" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Ztpcd" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Zcspv" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Zpcpr" Type="Edm.Decimal" Nullable="false" Precision="8" Scale="5"/>
+                <Property Name="Zwaersp" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Zkurrfp" Type="Edm.Decimal" Nullable="false" Precision="9" Scale="5"/>
+                <Property Name="Zpercsosp" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2"/>
+                <Property Name="Zzinc" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+                <Property Name="Kurrf" Type="Edm.Decimal" Nullable="false" Precision="9" Scale="5"/>
+                <Property Name="SignMultiplier" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Zimpp" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Zimco" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Ziprv" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Ziprvs" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Ziman" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Zimii" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Zimiidd" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Zimpe" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Zimst" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Zlord" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Zimlr" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Ziprvsf" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Zimansf" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+                <Property Name="Zirecsf" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="2"/>
+            </EntityType>
+            <EntityType Name="PdfDownloadType">
+                <Key>
+                    <PropertyRef Name="CompanyCodeFrom"/>
+                    <PropertyRef Name="CompanyCodeTo"/>
+                    <PropertyRef Name="CompetenceMonthFrom"/>
+                    <PropertyRef Name="CompetenceMonthTo"/>
+                    <PropertyRef Name="FacsimileMonthFrom"/>
+                    <PropertyRef Name="FacsimileMonthTo"/>
+                    <PropertyRef Name="FacsimileNumberFrom"/>
+                    <PropertyRef Name="FacsimileNumberTo"/>
+                    <PropertyRef Name="SalesOrgFrom"/>
+                    <PropertyRef Name="SalesOrgTo"/>
+                    <PropertyRef Name="CommissionClassFrom"/>
+                    <PropertyRef Name="CommissionClassTo"/>
+                    <PropertyRef Name="AgentTypeFrom"/>
+                    <PropertyRef Name="AgentTypeTo"/>
+                    <PropertyRef Name="AgentFrom"/>
+                    <PropertyRef Name="AgentTo"/>
+                    <PropertyRef Name="SalesDocumentFrom"/>
+                    <PropertyRef Name="SalesDocumentTo"/>
+                    <PropertyRef Name="DetailPrint"/>
+                    <PropertyRef Name="IncludeBlocked"/>
+                    <PropertyRef Name="IncludeAntMinReceived"/>
+                </Key>
+                <Property Name="CompanyCodeFrom" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="CompanyCodeTo" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="CompetenceMonthFrom" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="CompetenceMonthTo" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="FacsimileMonthFrom" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="FacsimileMonthTo" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="FacsimileNumberFrom" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="FacsimileNumberTo" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="SalesOrgFrom" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="SalesOrgTo" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="CommissionClassFrom" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="CommissionClassTo" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="AgentTypeFrom" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="AgentTypeTo" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="AgentFrom" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="AgentTo" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="SalesDocumentFrom" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="SalesDocumentTo" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="DetailPrint" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="IncludeBlocked" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="IncludeAntMinReceived" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Zamco" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="Zamcf" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="Zidfs" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Zclpr" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ZtpagDoc" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Zcdaz" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PrintScope" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ProcessedRows" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Attachment" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="FileName" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="MimeType" Type="Edm.String" Nullable="false" MaxLength="128"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="CommissionDetail" EntityType="com.sap.gateway.srvd.eacm.ui_rpdettmat.v0001.CommissionDetailType"/>
+                <EntitySet Name="PdfDownload" EntityType="com.sap.gateway.srvd.eacm.ui_rpdettmat.v0001.PdfDownloadType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.CommissionDetailType/Vkorg">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_vkorg}"/>
+                <Annotation Term="SAP__common.Heading" String="SOrg."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKORG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Vtweg">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_vtweg}"/>
+                <Annotation Term="SAP__common.Heading" String="DChl"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VTWEG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zclpr">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zclpr}"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Code classification commissions"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Vbeln">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_vbeln}"/>
+                <Annotation Term="SAP__common.Heading" String="Document"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Sales and Distribution Document Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBELN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Posnr">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_posnr}"/>
+                <Annotation Term="SAP__common.Heading" String="Item"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Item number of the SD document"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=POSNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zcdaz">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zcdaz}"/>
+                <Annotation Term="SAP__common.Heading" String="Agent"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zidag">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zidag}"/>
+                <Annotation Term="SAP__common.Heading" String="N.prog.ag."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Progressive number agent"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zidrg">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zidrg}"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Progressive line"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Bukrs">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_bukrs}"/>
+                <Annotation Term="SAP__common.Heading" String="CoCd"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BUKRS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Gjahr">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_gjahr}"/>
+                <Annotation Term="SAP__common.Heading" String="Year"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Fkdat">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_fkdat}"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=FKDAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Belnr">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_belnr}"/>
+                <Annotation Term="SAP__common.Heading" String="Doc. No."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Accounting Document Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BELNR_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Bldat">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_bldat}"/>
+                <Annotation Term="SAP__common.Heading" String="Doc. Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Document Date in Document"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BLDAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Kunrg">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_kunrg}"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KUNRG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Matnr">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_matnr}"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zamco">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zamco}"/>
+                <Annotation Term="SAP__common.QuickInfo" String="YYYYMM competence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zamcf">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zamcf}"/>
+                <Annotation Term="SAP__common.QuickInfo" String="YYYYMM competence facsimile"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zidfs">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zidfs}"/>
+                <Annotation Term="SAP__common.Heading" String="Facs. nr"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Waerk">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_waerk}"/>
+                <Annotation Term="SAP__common.Heading" String="Crcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Currency Key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WAERS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zzwaer">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zzwaer}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Namea">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_namea}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Ztpag">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_ztpag}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/ZtpagDoc">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_ztpagDoc}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zdeag">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zdeag}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Vkgrp">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_vkgrp}"/>
+                <Annotation Term="SAP__common.Heading" String="SGrp"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKGRP"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Vkbur">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_vkbur}"/>
+                <Annotation Term="SAP__common.Heading" String="SOff."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKBUR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Fkart">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_fkart}"/>
+                <Annotation Term="SAP__common.Heading" String="BillT"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=FKART"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Vbtyp">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_vbtyp}"/>
+                <Annotation Term="SAP__common.Heading" String="DocCa"/>
+                <Annotation Term="SAP__common.QuickInfo" String="SD document category"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBTYP"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Blart">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_blart}"/>
+                <Annotation Term="SAP__common.Heading" String="Doc. Type"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BLART"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Budat">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_budat}"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date of record allocation"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Maktx">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_maktx}"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAKTX"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Ztprv">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_ztprv}"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Commission type code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zdest">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zdest}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/ZstreDoc">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zstreDoc}"/>
+                <Annotation Term="SAP__common.Heading" String="Record state"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Record state"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/ZstreDet">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zstreDet}"/>
+                <Annotation Term="SAP__common.Heading" String="Record state"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Record state"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Ztpcd">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_ztpcd}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zcspv">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zcspv}"/>
+                <Annotation Term="SAP__common.Heading" String="Reason commission movement"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reason of the commission  movement"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zpcpr">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zpcpr}"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Percentage commission"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zwaersp">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zwaersp}"/>
+                <Annotation Term="SAP__common.Heading" String="Currency printing facsimil"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Currency printing facsimile"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zkurrfp">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zkurrfp}"/>
+                <Annotation Term="SAP__common.Heading" String="Exchange currency print"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Exchange currency print"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zpercsosp">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zpercsosp}"/>
+                <Annotation Term="SAP__common.Heading" String="Percentage suspended"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Percentage suspended"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zzinc">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Zwaersp"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zzinc}"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount takings (about row)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Kurrf">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_kurrf}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/SignMultiplier">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zimpp">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zimpp}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zimco">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zimco}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Ziprv">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_ziprv}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Ziprvs">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_ziprvs}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Ziman">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_ziman}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zimpp">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Heading" String="{@i18n>label_zimpp}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zimii">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Heading" String="{@i18n>label_zimii}"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zimii}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zimiidd">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zimiidd}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zimpe">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_zimpe}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zimst">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zlord">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zimlr">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Ziprvsf">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zimansf">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType/Zirecsf">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CommissionDetailType">
+                <Annotation Term="SAP__common.Label" String="{@i18n>label_commission_details}"/>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>i18nlabelBukrs}"/>
+                            <PropertyValue Property="Value" Path="Bukrs"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>i18nlabelZcdaz}"/>
+                            <PropertyValue Property="Value" Path="Zcdaz"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>i18nlabelNamea}"/>
+                            <PropertyValue Property="Value" Path="Namea"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>i18nlabelVbeln}"/>
+                            <PropertyValue Property="Value" Path="Vbeln"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>i18nlabelFkdat}"/>
+                            <PropertyValue Property="Value" Path="Fkdat"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>i18nlabelZclpr}"/>
+                            <PropertyValue Property="Value" Path="Zclpr"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>i18nlabelZiprv}"/>
+                            <PropertyValue Property="Value" Path="Ziprv"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Bukrs</PropertyPath>
+                        <PropertyPath>Zamco</PropertyPath>
+                        <PropertyPath>Zamcf</PropertyPath>
+                        <PropertyPath>Zidfs</PropertyPath>
+                        <PropertyPath>Vkorg</PropertyPath>
+                        <PropertyPath>Zclpr</PropertyPath>
+                        <PropertyPath>ZtpagDoc</PropertyPath>
+                        <PropertyPath>Zcdaz</PropertyPath>
+                        <PropertyPath>Vbeln</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/CommissionDetail">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Gjahr"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Zzinc"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__support.TechnicalInfoLinks">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="FunctionImport" String="GetTechnicalInfoLinks"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/CompanyCodeFrom">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Company Code"/>
+                <Annotation Term="SAP__common.Heading" String="CoCd"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BUKRS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/CompanyCodeTo">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Company Code"/>
+                <Annotation Term="SAP__common.Heading" String="CoCd"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BUKRS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/CompetenceMonthFrom">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Competence"/>
+                <Annotation Term="SAP__common.QuickInfo" String="YYYYMM competence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/CompetenceMonthTo">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Competence"/>
+                <Annotation Term="SAP__common.QuickInfo" String="YYYYMM competence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/FacsimileMonthFrom">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="YYYYMM competence"/>
+                <Annotation Term="SAP__common.QuickInfo" String="YYYYMM competence facsimile"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/FacsimileMonthTo">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="YYYYMM competence"/>
+                <Annotation Term="SAP__common.QuickInfo" String="YYYYMM competence facsimile"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/FacsimileNumberFrom">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Facsimile number"/>
+                <Annotation Term="SAP__common.Heading" String="Facs. nr"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/FacsimileNumberTo">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Facsimile number"/>
+                <Annotation Term="SAP__common.Heading" String="Facs. nr"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/SalesOrgFrom">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sales Organization"/>
+                <Annotation Term="SAP__common.Heading" String="SOrg."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKORG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/SalesOrgTo">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sales Organization"/>
+                <Annotation Term="SAP__common.Heading" String="SOrg."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKORG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/CommissionClassFrom">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Cod.class.comm."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Code classification commissions"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/CommissionClassTo">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Cod.class.comm."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Code classification commissions"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/AgentTypeFrom">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Agent type code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/AgentTypeTo">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Agent type code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/AgentFrom">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Agent Code"/>
+                <Annotation Term="SAP__common.Heading" String="Agent"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/AgentTo">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Agent Code"/>
+                <Annotation Term="SAP__common.Heading" String="Agent"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/SalesDocumentFrom">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="SD Document"/>
+                <Annotation Term="SAP__common.Heading" String="Document"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Sales and Distribution Document Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBELN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/SalesDocumentTo">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="SD Document"/>
+                <Annotation Term="SAP__common.Heading" String="Document"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Sales and Distribution Document Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBELN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/Bukrs">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Company Code"/>
+                <Annotation Term="SAP__common.Heading" String="CoCd"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BUKRS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/Zamco">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Competence"/>
+                <Annotation Term="SAP__common.QuickInfo" String="YYYYMM competence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/Zamcf">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="YYYYMM competence"/>
+                <Annotation Term="SAP__common.QuickInfo" String="YYYYMM competence facsimile"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/Zidfs">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Facsimile number"/>
+                <Annotation Term="SAP__common.Heading" String="Facs. nr"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/Vkorg">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Sales Organization"/>
+                <Annotation Term="SAP__common.Heading" String="SOrg."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKORG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/Zclpr">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Cod.class.comm."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Code classification commissions"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/ZtpagDoc">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Agent type code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/Zcdaz">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Agent Code"/>
+                <Annotation Term="SAP__common.Heading" String="Agent"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/Vbeln">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="SD Document"/>
+                <Annotation Term="SAP__common.Heading" String="Document"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Sales and Distribution Document Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBELN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType">
+                <Annotation Term="SAP__common.Label" String="RPDETTMAT PDF download"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/PdfDownload">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/Attachment">
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/MimeType">
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/DetailPrint">
+                <Annotation Term="SAP__common.Label" String="Truth Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Truth Value: True/False"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/IncludeBlocked">
+                <Annotation Term="SAP__common.Label" String="Truth Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Truth Value: True/False"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PdfDownloadType/IncludeAntMinReceived">
+                <Annotation Term="SAP__common.Label" String="Truth Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Truth Value: True/False"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
