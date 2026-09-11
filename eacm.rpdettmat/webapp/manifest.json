@@ -152,6 +152,13 @@
                     "DirectPdfDownload": {
                       "press": ".extension.eacm.rpdettmat.ext.controller.ListReportExt.downloadPdf",
                       "text": "{i18n>printPdfButtonText}"
+                    },
+                    "eMailPdf": {
+                      "press": ".extension.eacm.rpdettmat.ext.controller.ListReportExt.sendPdf",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "{i18n>sendPdfButtonText}"
                     }
                   },
                   "tableSettings": {

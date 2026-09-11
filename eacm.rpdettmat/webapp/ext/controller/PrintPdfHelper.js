@@ -87,26 +87,26 @@ sap.ui.define([
         return new Promise(function (resolve) {
             var oModel = _buildOptionsModel();
             var oDialog = new Dialog({
-                title: "Opzioni di stampa",
+                title: "{i18n>dialogTitle}",
                 contentWidth: "26rem",
                 content: new VBox({
                     items: [
                         new CheckBox({
-                            text: "Stampa dettaglio",
+                            text: "{i18n>printDetailText}",
                             selected: "{/DetailPrint}"
                         }),
                         new CheckBox({
-                            text: "Includi bloccati",
+                            text: "{i18n>includeBlockedText}",
                             selected: "{/IncludeBlocked}"
                         }),
                         new CheckBox({
-                            text: "Ant./Min. ricevuti",
+                            text: "{i18n>antMinReceivedText}",
                             selected: "{/IncludeAntMinReceived}"
                         })
                     ]
                 }),
                 beginButton: new Button({
-                    text: "Conferma",
+                    text: "{i18n>confirmButtonText}",
                     type: "Emphasized",
                     press: function () {
                         resolve(oModel.getData());
@@ -114,7 +114,7 @@ sap.ui.define([
                     }
                 }),
                 endButton: new Button({
-                    text: "Annulla",
+                    text: "{i18n>cancelButtonText}",
                     press: function () {
                         resolve(null);
                         oDialog.close();
