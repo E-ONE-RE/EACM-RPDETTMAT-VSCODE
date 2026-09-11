@@ -158,7 +158,7 @@
                       "visible": true,
                       "enabled": true,
                       "requiresSelection": false,
-                      "text": "{i18n>sendPdfButtonText}"
+                      "text": "{i18n>sendMailButtonText}"
                     }
                   },
                   "tableSettings": {
