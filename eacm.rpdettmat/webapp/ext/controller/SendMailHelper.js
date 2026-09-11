@@ -119,7 +119,7 @@ sap.ui.define([
         var oListBinding = oModel.bindList("/MailSender", undefined, undefined, aFilters, {
             $select: "AgentCode,AgentName,StatusCode,LogMessage,ProcessedObj"
         });
-        var aContexts = await oListBinding.requestContexts(0, 1);
+        var aContexts = await oListBinding.requestContexts(0, 0);
         var oContext;
         var oResult;
         var oBlob;
@@ -130,8 +130,10 @@ sap.ui.define([
 //            throw new Error("Errore durante la generazione del PDF.");
         }
 
-        oContext = aContexts[0];
-        oResult = oContext.getObject();
+        for (var i = 0; i < aContexts.length; i++) {
+            oContext = aContexts[i];
+            oResult = oContext.getObject();
+        }
 
 //        if (oResult && oResult.Attachment) {
 //            oBlob = _base64ToBlob(oResult.Attachment, oResult && oResult.MimeType);
