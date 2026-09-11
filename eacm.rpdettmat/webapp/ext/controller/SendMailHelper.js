@@ -133,6 +133,9 @@ sap.ui.define([
         for (var i = 0; i < aContexts.length; i++) {
             oContext = aContexts[i];
             oResult = oContext.getObject();
+            if (oResult && oResult.StatusCode !== "S") {
+                throw new Error("Agente: " + oResult.AgentName + " - Errore durante l'invio mail: " + oResult.LogMessage);
+            }
         }
 
 //        if (oResult && oResult.Attachment) {
