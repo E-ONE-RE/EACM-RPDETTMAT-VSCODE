@@ -154,7 +154,7 @@
                       "text": "{i18n>printPdfButtonText}"
                     },
                     "eMailPdf": {
-                      "press": ".extension.eacm.rpdettmat.ext.controller.ListReportExt.sendPdf",
+                      "press": ".extension.eacm.rpdettmat.ext.controller.ListReportExt.sendMail",
                       "visible": true,
                       "enabled": true,
                       "requiresSelection": false,

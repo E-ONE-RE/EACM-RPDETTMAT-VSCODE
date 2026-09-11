@@ -25,7 +25,7 @@ sap.ui.define([
         return new Promise(function (resolve) {
             var oModel = _buildOptionsModel();
             var oDialog = new Dialog({
-                title: "{i18n>dialogTitle}",
+                title: "{i18n>dialogTitle2}",
                 contentWidth: "26rem",
                 content: new VBox({
                     items: [
@@ -147,7 +147,7 @@ sap.ui.define([
     return {
         // Nuovo flusso list report:
         // usa i filtri gia applicati sopra e chiede solo i 3 booleani di stampa.
-        runReportPdfSending: async function (oExtensionAPI) {
+        runReportMailSending: async function (oExtensionAPI) {
 //          var userLang = sap.ui.getCore().getConfiguration().getLanguage();
 //                         'it-IT'  'en-US'  'de-DE'  'fr-FR'  'es-ES'
             var mOptions = await _openSendOptionsDialog(oExtensionAPI);

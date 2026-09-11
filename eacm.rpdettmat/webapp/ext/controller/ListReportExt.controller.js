@@ -2,8 +2,8 @@ sap.ui.define([
     "sap/ui/core/mvc/ControllerExtension",
     "sap/m/MessageBox",
     "eacm/rpdettmat/ext/controller/PrintPdfHelper",
-    "eacm/rpdettmat/ext/controller/SendPdfHelper"
-], function (ControllerExtension, MessageBox, PrintPdfHelper, SendPdfHelper) {
+    "eacm/rpdettmat/ext/controller/SendMailHelper"
+], function (ControllerExtension, MessageBox, PrintPdfHelper, SendMailHelper) {
     "use strict";
 
     return ControllerExtension.extend("eacm.rpdettmat.ext.controller.ListReportExt", {
@@ -20,9 +20,9 @@ sap.ui.define([
                 );
             }
         },
-        sendPdf: async function() {
+        sendMail: async function() {
             try {
-                await SendPdfHelper.runReportPdfSending(this.base.getExtensionAPI());
+                await SendMailHelper.runReportMailSending(this.base.getExtensionAPI());
             } catch (oError) {
                 MessageBox.error(
                     oError && oError.message
