@@ -5,9 +5,13 @@ sap.ui.define([
     "sap/m/VBox",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "sap/ui/model/json/JSONModel"
-], function (Button, CheckBox, Dialog, VBox, Filter, FilterOperator, JSONModel) {
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/core/library",
+    "eacm/rpdettmat/ext/controller/MessageLogViewer"
+], function (Button, CheckBox, Dialog, VBox, Filter, FilterOperator, JSONModel, coreLibrary, MessageLogViewer) {
     "use strict";
+
+    var MessageType = coreLibrary.MessageType;
 
     // Helper unico della stampa del List Report.
     // Il dataset non viene letto dalla tabella a video: si rimandano al backend i filtri attivi.
@@ -119,34 +123,88 @@ sap.ui.define([
         var oListBinding = oModel.bindList("/MailSender", undefined, undefined, aFilters, {
             $select: "AgentCode,AgentName,StatusCode,LogMessage,ProcessedObj"
         });
-        var aContexts = await oListBinding.requestContexts(0, 0);
+
+        try {
+            MessageLogViewer.showBusy("Elaborazione in corso...");
+            var aContexts = await oListBinding.requestContexts(0, 0);
+        } catch (oError) {
+            MessageLogViewer.showMessages([{
+                type: MessageType.Error,
+                title: "Errore durante l''invio mail.",
+                description: oError && oError.message ? oError.message : ""
+            }]);
+            return;
+        } finally {
+            MessageLogViewer.hideBusy();
+        }
         var oContext;
         var oResult;
-        var oBlob;
+        var error = false;
+		var xType = "";
+		var xTitle = "";
+        var xRefKey = "";
+        var xDescription = "";
+        var xCounter = 0;
+
+        var aModel = [];
 
         if (!aContexts.length) {
-            throw new Error("Nessun dato trovato per i filtri selezionati.");
+            MessageLogViewer.showMessages([{
+                type: MessageType.Error,
+                title: "Nessun dato trovato per i filtri selezionati.",
+                description: "Verificare l'esistenza di dati per i filtri selezionati e riprovare."
+            }]);
+            return;
         } else {
-//            throw new Error("Errore durante la generazione del PDF.");
-        }
-
-        for (var i = 0; i < aContexts.length; i++) {
-            oContext = aContexts[i];
-            oResult = oContext.getObject();
-            if (oResult && oResult.StatusCode !== "S") {
-                throw new Error("Agente: " + oResult.AgentName + " - Errore durante l'invio mail: " + oResult.LogMessage);
+            for (var i = 0; i < aContexts.length; i++) {
+                xType = xTitle = xRefKey = xDescription = "";
+                xCounter = 0;
+                oContext = aContexts[i];
+                oResult = oContext.getObject();
+                if (oResult && oResult.StatusCode !== "S") {
+                    error = true;
+                    xType = MessageType.Error;
+                } else {
+                    xType = MessageType.Success;
+                }
+                if (oResult.AgentName !== "" && oResult.AgentName !== undefined && oResult.AgentName !== null &&
+                    oResult.AgentCode !== "" && oResult.AgentCode !== undefined && oResult.AgentCode !== null ) {
+                    xTitle = "Agente: " + oResult.AgentName + " - " + oResult.LogMessage;
+                    xRefKey = oResult.AgentCode;
+//                  xDescription = "Agente: " + oResult.AgentName + " - " + oResult.LogMessage;
+                    xCounter = oResult.ProcessedObj;
+                } else {
+                    xTitle = oResult.LogMessage;
+//                  xDescription = oResult.LogMessage;
+                }
+                aModel.push({
+                    type: xType,
+                    title: xTitle,
+                    key: xRefKey,
+                    description: xDescription,
+                    counter: xCounter
+                });
             }
         }
 
-//        if (oResult && oResult.Attachment) {
-//            oBlob = _base64ToBlob(oResult.Attachment, oResult && oResult.MimeType);
-//        } else {
-//            oBlob = await _downloadAttachmentStream(oContext, oResult);
-//        }
+        if (error) {
+            aModel.push({
+                type: MessageType.Warning,
+                title: "Invio mail completato con errori.",
+                description: "",
+                counter: 0
+            });
+        } else {
+            aModel.push({
+                type: MessageType.Information,
+                title: "Invio mail completato correttamente.",
+                description: "",
+                counter: 0
+            });
+        }
 
-        return {
-            log: oResult
-        };
+        MessageLogViewer.showMessages(aModel);
+
     }
 
     return {
@@ -156,14 +214,10 @@ sap.ui.define([
 //          var userLang = sap.ui.getCore().getConfiguration().getLanguage();
 //                         'it-IT'  'en-US'  'de-DE'  'fr-FR'  'es-ES'
             var mOptions = await _openSendOptionsDialog(oExtensionAPI);
-            var oPdf;
             if (!mOptions) {
                 return;
             }
-            oPdf = await _sendMailFromListReport(oExtensionAPI, mOptions);
-/*  Da verificare --------------------------------------------------
-            await _sendingdBlob(oPdf.blob, oPdf.fileName);
----  Da verificare -------------------------------------------------- */            
+            await _sendMailFromListReport(oExtensionAPI, mOptions);
         }
     };
 });
