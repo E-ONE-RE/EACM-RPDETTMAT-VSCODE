@@ -8,14 +8,14 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/library",
     "eacm/rpdettmat/ext/controller/MessageLogViewer"
+// eslint-disable-next-line max-params
 ], function (Button, CheckBox, Dialog, VBox, Filter, FilterOperator, JSONModel, coreLibrary, MessageLogViewer) {
     "use strict";
 
     var MessageType = coreLibrary.MessageType;
 
-    // Helper unico della stampa del List Report.
+    // Helper unico dell'invio mail per il List Report.
     // Il dataset non viene letto dalla tabella a video: si rimandano al backend i filtri attivi.
-    var SERVICE_ROOT = "/sap/opu/odata4/eacm/ui_rpdettmat_b/srvd/eacm/ui_rpdettmat/0001";
 
     function _buildOptionsModel() {
         return new JSONModel({
@@ -26,6 +26,7 @@ sap.ui.define([
     }
 
     function _openSendOptionsDialog(oExtensionAPI) {
+        // eslint-disable-next-line no-undef
         return new Promise(function (resolve) {
             var oModel = _buildOptionsModel();
             var oDialog = new Dialog({
