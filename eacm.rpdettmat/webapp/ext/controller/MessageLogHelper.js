@@ -12,8 +12,8 @@ sap.ui.define([
 
 	// BusyDialog condiviso dal modulo
 	var oBusyDialog = new BusyDialog({
-		title: "Elaborazione",
-		text: "Attendere, elaborazione in corso..."
+		title: "{i18n>busyDialogTitle}",
+		text: "{i18n>busyDialogText}"
 	});
 
 	return {
@@ -52,7 +52,7 @@ sap.ui.define([
 
             return new MessageItem({
                 type: oMessage.type || MessageType.Error,
-                title: oMessage.title || "Messaggio",
+                title: oMessage.title || "{i18n>messageTitle}",
                 description: oMessage.description || "",
 				key: oMessage.key || "",
 				conter: oMessage.counter || 0
@@ -69,7 +69,7 @@ sap.ui.define([
 
         // Creazione della popup
         var oDialog = new Dialog({
-            title: "Messaggi",
+            title: "{i18n>messagesText}",
             contentWidth: "50%",
             contentHeight: "50%",
 			resizable: true,
@@ -84,7 +84,7 @@ sap.ui.define([
             ],
 
             beginButton: new Button({
-                text: "Chiudi",
+                text: "{i18n>closeButtonText}",
                 press: function () {
                     oDialog.close();
                 }

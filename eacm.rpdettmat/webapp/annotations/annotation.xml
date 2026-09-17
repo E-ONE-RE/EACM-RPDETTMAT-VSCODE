@@ -256,47 +256,47 @@
                 <Annotation Term="UI.LineItem">
                     <Collection>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelBukrs}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_bukrs}"/>
                             <PropertyValue Property="Value" Path="Bukrs"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelZcdaz}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_zcdaz}"/>
                             <PropertyValue Property="Value" Path="Zcdaz"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelNamea}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_namea}"/>
                             <PropertyValue Property="Value" Path="Namea"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelVbeln}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_vbeln}"/>
                             <PropertyValue Property="Value" Path="Vbeln"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelFkdat}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_fkdat}"/>
                             <PropertyValue Property="Value" Path="Fkdat"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelZclpr}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_zclpr}"/>
                             <PropertyValue Property="Value" Path="Zclpr"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelZiprv}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_ziprv}"/>
                             <PropertyValue Property="Value" Path="Ziprv"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelZimco}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_zimco}"/>
                             <PropertyValue Property="Value" Path="Zimco"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelZiman}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_ziman}"/>
                             <PropertyValue Property="Value" Path="Ziman"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>

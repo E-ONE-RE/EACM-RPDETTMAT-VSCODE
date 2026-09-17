@@ -16,8 +16,8 @@ sap.ui.define([
                 MessageBox.error(
                     oError && oError.message
                         ? oError.message
-                        : "Errore durante la stampa PDF."
-                );
+                        : "{i18n>errorPdfPrint}"
+                ); // Errore durante la stampa PDF.
             }
         },
         sendMail: async function() {
@@ -27,8 +27,8 @@ sap.ui.define([
                 MessageBox.error(
                     oError && oError.message
                         ? oError.message
-                        : "Errore durante l''invio mail."
-                );
+                        : "{i18n>errorSendMail}"
+                ); // Errore durante l'invio mail.
             }
         }
     }); 

@@ -7,9 +7,9 @@ sap.ui.define([
     "sap/ui/model/FilterOperator",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/library",
-    "eacm/rpdettmat/ext/controller/MessageLogViewer"
+    "eacm/rpdettmat/ext/controller/MessageLogHelper"
 // eslint-disable-next-line max-params
-], function (Button, CheckBox, Dialog, VBox, Filter, FilterOperator, JSONModel, coreLibrary, MessageLogViewer) {
+], function (Button, CheckBox, Dialog, VBox, Filter, FilterOperator, JSONModel, coreLibrary, MessageLogHelper) {
     "use strict";
 
     var MessageType = coreLibrary.MessageType;
@@ -126,17 +126,17 @@ sap.ui.define([
         });
 
         try {
-            MessageLogViewer.showBusy("Elaborazione in corso...");
+            MessageLogHelper.showBusy("Elaborazione in corso...");
             var aContexts = await oListBinding.requestContexts(0, 0);
         } catch (oError) {
-            MessageLogViewer.showMessages([{
+            MessageLogHelper.showMessages([{
                 type: MessageType.Error,
-                title: "Errore durante l''invio mail.",
+                title: "{i18n>errorSendMail}",
                 description: oError && oError.message ? oError.message : ""
             }]);
             return;
         } finally {
-            MessageLogViewer.hideBusy();
+            MessageLogHelper.hideBusy();
         }
         var oContext;
         var oResult;
@@ -150,7 +150,7 @@ sap.ui.define([
         var aModel = [];
 
         if (!aContexts.length) {
-            MessageLogViewer.showMessages([{
+            MessageLogHelper.showMessages([{
                 type: MessageType.Error,
                 title: "Nessun dato trovato per i filtri selezionati.",
                 description: "Verificare l'esistenza di dati per i filtri selezionati e riprovare."
@@ -204,7 +204,7 @@ sap.ui.define([
             });
         }
 
-        MessageLogViewer.showMessages(aModel);
+        MessageLogHelper.showMessages(aModel);
 
     }
 

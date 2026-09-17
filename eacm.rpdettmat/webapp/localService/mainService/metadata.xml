@@ -547,37 +547,37 @@
                 <Annotation Term="SAP__UI.LineItem">
                     <Collection>
                         <Record Type="SAP__UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelBukrs}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_bukrs}"/>
                             <PropertyValue Property="Value" Path="Bukrs"/>
                             <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="SAP__UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelZcdaz}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_zcdaz}"/>
                             <PropertyValue Property="Value" Path="Zcdaz"/>
                             <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="SAP__UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelNamea}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_namea}"/>
                             <PropertyValue Property="Value" Path="Namea"/>
                             <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="SAP__UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelVbeln}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_vbeln}"/>
                             <PropertyValue Property="Value" Path="Vbeln"/>
                             <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="SAP__UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelFkdat}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_fkdat}"/>
                             <PropertyValue Property="Value" Path="Fkdat"/>
                             <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="SAP__UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelZclpr}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_zclpr}"/>
                             <PropertyValue Property="Value" Path="Zclpr"/>
                             <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="SAP__UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>i18nlabelZiprv}"/>
+                            <PropertyValue Property="Label" String="{@i18n>label_ziprv}"/>
                             <PropertyValue Property="Value" Path="Ziprv"/>
                             <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
                         </Record>
@@ -793,7 +793,7 @@
             </Annotations>
             <Annotations Target="SAP__self.PdfDownloadType/SalesDocumentTo">
                 <Annotation Term="SAP__common.IsUpperCase"/>
-                <Annotation Term="SAP__common.Label" String="SD Document"/>
+                <Annotation Term="SAP__common.Label" String="{i18n>label_vbeln}"/>
                 <Annotation Term="SAP__common.Heading" String="Document"/>
                 <Annotation Term="SAP__common.QuickInfo" String="Sales and Distribution Document Number"/>
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBELN"/>
@@ -801,26 +801,26 @@
             <Annotations Target="SAP__self.PdfDownloadType/Bukrs">
                 <Annotation Term="SAP__common.IsUpperCase"/>
                 <Annotation Term="SAP__UI.Hidden"/>
-                <Annotation Term="SAP__common.Label" String="Company Code"/>
+                <Annotation Term="SAP__common.Label" String="{i18n>label_bukrs}"/>
                 <Annotation Term="SAP__common.Heading" String="CoCd"/>
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BUKRS"/>
             </Annotations>
             <Annotations Target="SAP__self.PdfDownloadType/Zamco">
                 <Annotation Term="SAP__common.IsDigitSequence"/>
                 <Annotation Term="SAP__UI.Hidden"/>
-                <Annotation Term="SAP__common.Label" String="Competence"/>
+                <Annotation Term="SAP__common.Label" String="{i18n>label_zamco}"/>
                 <Annotation Term="SAP__common.QuickInfo" String="YYYYMM competence"/>
             </Annotations>
             <Annotations Target="SAP__self.PdfDownloadType/Zamcf">
                 <Annotation Term="SAP__common.IsDigitSequence"/>
                 <Annotation Term="SAP__UI.Hidden"/>
-                <Annotation Term="SAP__common.Label" String="YYYYMM competence"/>
+                <Annotation Term="SAP__common.Label" String="{i18n>label_zamcf}"/>
                 <Annotation Term="SAP__common.QuickInfo" String="YYYYMM competence facsimile"/>
             </Annotations>
             <Annotations Target="SAP__self.PdfDownloadType/Zidfs">
                 <Annotation Term="SAP__common.IsDigitSequence"/>
                 <Annotation Term="SAP__UI.Hidden"/>
-                <Annotation Term="SAP__common.Label" String="Facsimile number"/>
+                <Annotation Term="SAP__common.Label" String="{i18n>label_zidfs}"/>
                 <Annotation Term="SAP__common.Heading" String="Facs. nr"/>
             </Annotations>
             <Annotations Target="SAP__self.PdfDownloadType/Vkorg">
@@ -833,24 +833,24 @@
             <Annotations Target="SAP__self.PdfDownloadType/Zclpr">
                 <Annotation Term="SAP__common.IsUpperCase"/>
                 <Annotation Term="SAP__UI.Hidden"/>
-                <Annotation Term="SAP__common.Label" String="Cod.class.comm."/>
+                <Annotation Term="SAP__common.Label" String="{i18n>label_zclpr}"/>
                 <Annotation Term="SAP__common.QuickInfo" String="Code classification commissions"/>
             </Annotations>
             <Annotations Target="SAP__self.PdfDownloadType/ZtpagDoc">
                 <Annotation Term="SAP__common.IsUpperCase"/>
                 <Annotation Term="SAP__UI.Hidden"/>
-                <Annotation Term="SAP__common.Label" String="Agent type code"/>
+                <Annotation Term="SAP__common.Label" String="{i18n>label_ztpagDoc}"/>
             </Annotations>
             <Annotations Target="SAP__self.PdfDownloadType/Zcdaz">
                 <Annotation Term="SAP__common.IsUpperCase"/>
                 <Annotation Term="SAP__UI.Hidden"/>
-                <Annotation Term="SAP__common.Label" String="Agent Code"/>
+                <Annotation Term="SAP__common.Label" String="{i18n>label_zcdaz}"/>
                 <Annotation Term="SAP__common.Heading" String="Agent"/>
             </Annotations>
             <Annotations Target="SAP__self.PdfDownloadType/Vbeln">
                 <Annotation Term="SAP__common.IsUpperCase"/>
                 <Annotation Term="SAP__UI.Hidden"/>
-                <Annotation Term="SAP__common.Label" String="SD Document"/>
+                <Annotation Term="SAP__common.Label" String="{i18n>label_vbeln}"/>
                 <Annotation Term="SAP__common.Heading" String="Document"/>
                 <Annotation Term="SAP__common.QuickInfo" String="Sales and Distribution Document Number"/>
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBELN"/>
