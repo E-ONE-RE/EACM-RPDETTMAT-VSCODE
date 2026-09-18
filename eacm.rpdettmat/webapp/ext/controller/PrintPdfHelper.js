@@ -32,7 +32,7 @@ sap.ui.define([
         });
 
         if (!oResponse.ok) {
-            var oError = new Error("Download PDF fallito con stato HTTP " + oResponse.status + ".");
+            var oError = new Error("{i18n>errorPdfDownloadHTTP}" + " " + oResponse.status + " " + oResponse.statusText);
             oError.status = oResponse.status;
             oError.responseText = await oResponse.text();
             throw oError;
@@ -66,10 +66,13 @@ sap.ui.define([
 
         oLink.href = sObjectUrl;
         oLink.download = sFileName || "CommissionsAccrued.pdf";
+        // eslint-disable-next-line @sap-ux/fiori-tools/sap-no-dom-insertion, @sap-ux/fiori-tools/sap-browser-api-warning, @sap-ux/fiori-tools/sap-no-proprietary-browser-api
         document.body.appendChild(oLink);
         oLink.click();
+        // eslint-disable-next-line @sap-ux/fiori-tools/sap-browser-api-warning, @sap-ux/fiori-tools/sap-no-proprietary-browser-api
         document.body.removeChild(oLink);
 
+        // eslint-disable-next-line @sap-ux/fiori-tools/sap-timeout-usage
         window.setTimeout(function () {
             window.URL.revokeObjectURL(sObjectUrl);
         }, 1000);
@@ -84,6 +87,7 @@ sap.ui.define([
     }
 
     function _openPrintOptionsDialog(oExtensionAPI) {
+        // eslint-disable-next-line no-undef
         return new Promise(function (resolve) {
             var oModel = _buildOptionsModel();
             var oDialog = new Dialog({
@@ -163,7 +167,7 @@ sap.ui.define([
         );
 
         if (!aFilters.length) {
-            throw new Error("Non è possibile eseguire la stampa senza aver indicato alcun filtro.");
+            throw new Error("{i18n>errorNoFilterPrint}");
         }
 
         aFilters.push(new Filter("DetailPrint", FilterOperator.EQ, !!mOptions.DetailPrint));
@@ -192,7 +196,7 @@ sap.ui.define([
 
         sBase64 = typeof vAttachment === "string" ? vAttachment.replace(/\s/g, "") : "";
         if (!sBase64) {
-            throw new Error("Il servizio non ha restituito il contenuto PDF.");
+            throw new Error("{i18n>errorPdfContent}");
         }
 
         // OData V4 puo serializzare Edm.Binary in base64url:
@@ -241,7 +245,7 @@ sap.ui.define([
         var oBlob;
 
         if (!sAttachmentUrl) {
-            throw new Error("Il servizio non ha restituito il link dell'allegato PDF.");
+            throw new Error("{i18n>errorPdfLink}");
         }
 
         aCandidateUrls = _buildFallbackDownloadUrls(sAttachmentUrl);
@@ -256,7 +260,7 @@ sap.ui.define([
         }
 
         if (!oBlob) {
-            throw oLastError || new Error("Download PDF fallito.");
+            throw oLastError || new Error("{i18n>errorPdfDownload}");
         }
 
         return oBlob;
@@ -276,9 +280,9 @@ sap.ui.define([
         var oBlob;
 
         if (!aContexts.length) {
-            throw new Error("Nessun dato trovato per i filtri selezionati.");
+            throw new Error("{i18n>errorNoDataFound}");
         } else if (aContexts.length < 0) {
-            throw new Error("Errore durante la generazione del PDF.");
+            throw new Error("{i18n>errorPdfCreation");
         }
 
         oContext = aContexts[0];
