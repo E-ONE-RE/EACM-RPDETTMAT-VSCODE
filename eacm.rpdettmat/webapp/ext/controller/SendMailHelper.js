@@ -106,7 +106,7 @@ sap.ui.define([
         );
 
         if (!aFilters.length) {
-            throw new Error("Non è possibile eseguire l''invio mail senza aver indicato alcun filtro.");
+            throw new Error("{i18n>errorNoFilterSend}");
         }
 
         aFilters.push(new Filter("DetailPrint", FilterOperator.EQ, !!mOptions.DetailPrint));
@@ -126,7 +126,7 @@ sap.ui.define([
         });
 
         try {
-            MessageLogHelper.showBusy("Elaborazione in corso...");
+            MessageLogHelper.showBusy("{i18n>busyDialogText}");
             var aContexts = await oListBinding.requestContexts(0, 0);
         } catch (oError) {
             MessageLogHelper.showMessages([{
@@ -152,8 +152,8 @@ sap.ui.define([
         if (!aContexts.length) {
             MessageLogHelper.showMessages([{
                 type: MessageType.Error,
-                title: "Nessun dato trovato per i filtri selezionati.",
-                description: "Verificare l'esistenza di dati per i filtri selezionati e riprovare."
+                title: "{i18n>errorNoDataFound}",
+                description: "{i18n>errorVerifyFilters}"
             }]);
             return;
         } else {
@@ -172,11 +172,9 @@ sap.ui.define([
                     oResult.AgentCode !== "" && oResult.AgentCode !== undefined && oResult.AgentCode !== null ) {
                     xTitle = "Agente: " + oResult.AgentName + " - " + oResult.LogMessage;
                     xRefKey = oResult.AgentCode;
-//                  xDescription = "Agente: " + oResult.AgentName + " - " + oResult.LogMessage;
                     xCounter = oResult.ProcessedObj;
                 } else {
                     xTitle = oResult.LogMessage;
-//                  xDescription = oResult.LogMessage;
                 }
                 aModel.push({
                     type: xType,
@@ -191,14 +189,14 @@ sap.ui.define([
         if (error) {
             aModel.push({
                 type: MessageType.Warning,
-                title: "Invio mail completato con errori.",
+                title: "{i18n>mailsSentWithErrors}",
                 description: "",
                 counter: 0
             });
         } else {
             aModel.push({
                 type: MessageType.Information,
-                title: "Invio mail completato correttamente.",
+                title: "{i18n>mailsSentSuccessfully}",
                 description: "",
                 counter: 0
             });
