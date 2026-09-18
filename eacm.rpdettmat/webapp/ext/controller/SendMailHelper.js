@@ -106,8 +106,14 @@ sap.ui.define([
         );
 
         if (!aFilters.length) {
-            throw new Error("{i18n>errorNoFilterSend}");
-        }
+//          throw new Error("{i18n>errorNoFilterSend}");
+            const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split('-')[0];
+            if (sLanguage === "it") {
+               throw new Error("Non è possibile eseguire l''invio mail senza aver indicato alcun filtro");
+            } else {
+                throw new Error("It''s not possible to send e-mails without having indicated any filter");
+            }
+       }
 
         aFilters.push(new Filter("DetailPrint", FilterOperator.EQ, !!mOptions.DetailPrint));
         aFilters.push(new Filter("IncludeBlocked", FilterOperator.EQ, !!mOptions.IncludeBlocked));
