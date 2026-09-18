@@ -5,8 +5,9 @@ sap.ui.define([
     "sap/m/VBox",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "sap/ui/model/json/JSONModel"
-], function (Button, CheckBox, Dialog, VBox, Filter, FilterOperator, JSONModel) {
+    "sap/ui/model/json/JSONModel",
+    "eacm/rpdettmat/ext/controller/MessageLogHelper"
+], function (Button, CheckBox, Dialog, VBox, Filter, FilterOperator, JSONModel, MessageLogHelper) {
     "use strict";
 
     // Helper unico della stampa del List Report.
@@ -274,7 +275,19 @@ sap.ui.define([
         var oListBinding = oModel.bindList("/PdfDownload", undefined, undefined, aFilters, {
             $select: "Attachment,FileName,MimeType"
         });
-        var aContexts = await oListBinding.requestContexts(0, 1);
+        try {
+            MessageLogHelper.showBusy("{i18n>busyDialogText}");
+            var aContexts = await oListBinding.requestContexts(0, 1);
+        } catch (oError) {
+            MessageLogHelper.showMessages([{
+                type: MessageType.Error,
+                title: "{i18n>errorPdfPrint}",
+                description: oError && oError.message ? oError.message : ""
+            }]);
+            return;
+        } finally {
+            MessageLogHelper.hideBusy();
+        }
         var oContext;
         var oResult;
         var oBlob;

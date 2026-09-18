@@ -20,7 +20,7 @@ builder:
           name: /EACM/ZPRMAT
           description: Report provvigioni Maturate
           package: /EACM/RPDETTMAT
-          transport: DVLK900066
+          transport: DVLK900271
         exclude:
           - /test/
           - /localService/
