@@ -12,8 +12,6 @@ sap.ui.define([
 ], function (Button, CheckBox, Dialog, VBox, Filter, FilterOperator, JSONModel, coreLibrary, MessageLogHelper) {
     "use strict";
 
-    var MessageType = coreLibrary.MessageType;
-
     // Helper unico della stampa del List Report.
     // Il dataset non viene letto dalla tabella a video: si rimandano al backend i filtri attivi.
     var SERVICE_ROOT = "/sap/opu/odata4/eacm/ui_rpdettmat_b/srvd/eacm/ui_rpdettmat/0001";

@@ -106,7 +106,7 @@ sap.ui.define([
         );
 
         if (!aFilters.length) {
-            const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split('-')[0];
+            const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
             if (sLanguage === "it") {
                throw new Error("Non è possibile eseguire l''invio mail senza aver indicato alcun filtro"); // i18n>errorNoFilterSend
             } else {
