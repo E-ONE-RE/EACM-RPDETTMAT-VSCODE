@@ -40,9 +40,9 @@ sap.ui.define([
             const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
             var oError;
             if (sLanguage === "it") {
-                oError = new Error("Download PDF fallito con stato HTTP" + oResponse.status + " " + oResponse.statusText);
+                oError = new Error("Download PDF fallito con stato HTTP" + oResponse.status + " " + oResponse.statusText); // i18n>errorPdfDownloadHTTP
             } else {
-                oError = new Error("PDF download failed with HTTP status" + oResponse.status + " " + oResponse.statusText);
+                oError = new Error("PDF download failed with HTTP status" + oResponse.status + " " + oResponse.statusText); // i18n>errorPdfDownloadHTTP
             }
             oError.status = oResponse.status;
             oError.responseText = await oResponse.text();
@@ -180,9 +180,9 @@ sap.ui.define([
         if (!aFilters.length) {
             const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
             if (sLanguage === "it") {
-               throw new Error("Non è possibile eseguire la stampa senza aver indicato alcun filtro");
+               throw new Error("Non è possibile eseguire la stampa senza aver indicato alcun filtro"); // i18n>errorNoFilterSend
             } else {
-                throw new Error("It''s not possible to print PDF without having indicated any filter");
+                throw new Error("It''s not possible to print PDF without having defined any filter"); // i18n>errorNoFilterSend
             }
         }
 
@@ -214,9 +214,9 @@ sap.ui.define([
         if (!sBase64) {
             const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
             if (sLanguage === "it") {
-               throw new Error("Il servizio non ha restituito il contenuto PDF");
+               throw new Error("Il servizio non ha restituito il contenuto PDF"); //i18n>errorPdfContent
             } else {
-                throw new Error("The service did not return the PDF content");
+                throw new Error("The service did not return the PDF content"); //i18n>errorPdfContent
             }
         }
 
@@ -268,9 +268,9 @@ sap.ui.define([
         if (!sAttachmentUrl) {
             const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
             if (sLanguage === "it") {
-               throw new Error("Il servizio non ha restituito il link dell''allegato PDF");
+               throw new Error("Il servizio non ha restituito il link dell''allegato PDF"); //i18n>errorPdfLink
             } else {
-                throw new Error("The service did not return the PDF attachment link");
+                throw new Error("The service did not return the PDF attachment link"); //i18n>errorPdfLink
             }
         }
 
@@ -288,9 +288,9 @@ sap.ui.define([
         if (!oBlob) {
             const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
             if (sLanguage === "it") {
-               throw oLastError || new Error("Download PDF fallito");
+               throw oLastError || new Error("Download PDF fallito"); //i18n>errorPdfDownload
             } else {
-                throw oLastError || new Error("PDF download failed");
+                throw oLastError || new Error("PDF download failed"); //i18n>errorPdfDownload
             }
         }
 
@@ -311,9 +311,9 @@ sap.ui.define([
         } catch (oError) {
             const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
             if (sLanguage === "it") {
-               throw new Error("Errore durante la stampa PDF" + " - " + oError.message);
+               throw new Error("Errore durante la stampa PDF" + " - " + oError.message); //i18n>errorPdfPrint
             } else {
-                throw new Error("Error during PDF printing" + " - " + oError.message);
+                throw new Error("Error during PDF printing" + " - " + oError.message); //i18n>errorPdfPrint
             }
         } finally {
             MessageLogHelper.hideBusy();
@@ -325,16 +325,16 @@ sap.ui.define([
         if (!aContexts.length) {
             const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
             if (sLanguage === "it") {
-               throw new Error("Nessun dato trovato per i filtri selezionati");
+               throw new Error("Nessun dato trovato per i filtri selezionati"); //i18n>errorNoDataFound
             } else {
-                throw new Error("No data found for the selected filters");
+                throw new Error("No data found for the selected filters"); //i18n>errorNoDataFound
             }
         } else if (aContexts.length < 0) {
             const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
             if (sLanguage === "it") {
-               throw new Error("Errore durante la generazione del PDF");
+               throw new Error("Errore durante la generazione del PDF"); //i18n>errorPdfCreation
             } else {
-                throw new Error("Error during PDF generation");
+                throw new Error("Error during PDF generation"); //i18n>errorPdfCreation
             }
         }
 

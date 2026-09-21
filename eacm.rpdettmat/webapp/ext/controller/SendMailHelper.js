@@ -106,12 +106,11 @@ sap.ui.define([
         );
 
         if (!aFilters.length) {
-//          throw new Error("{i18n>errorNoFilterSend}");
             const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split('-')[0];
             if (sLanguage === "it") {
-               throw new Error("Non è possibile eseguire l''invio mail senza aver indicato alcun filtro");
+               throw new Error("Non è possibile eseguire l''invio mail senza aver indicato alcun filtro"); // i18n>errorNoFilterSend
             } else {
-                throw new Error("It''s not possible to send e-mails without having indicated any filter");
+                throw new Error("It''s not possible to send e-mails without having defined any filter"); // i18n>errorNoFilterSend
             }
        }
 
