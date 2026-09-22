@@ -258,13 +258,14 @@ sap.ui.define([
     }
 
     async function _downloadAttachmentStream(oContext, oResult) {
+        var sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
         var sAttachmentUrl = _buildAttachmentUrl(oContext, oResult);
         var aCandidateUrls;
         var oLastError;
         var oBlob;
 
         if (!sAttachmentUrl) {
-            var sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
+            sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
             if (sLanguage === "it") {
                throw new Error("Il servizio non ha restituito il link dell''allegato PDF"); //i18n>errorPdfLink
             } else {
@@ -284,7 +285,7 @@ sap.ui.define([
         }
 
         if (!oBlob) {
-            var sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
+            sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
             if (sLanguage === "it") {
                throw oLastError || new Error("Download PDF fallito"); //i18n>errorPdfDownload
             } else {
