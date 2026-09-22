@@ -106,7 +106,7 @@ sap.ui.define([
         );
 
         if (!aFilters.length) {
-            const sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
+            var sLanguage = sap.ui.getCore().getConfiguration().getLanguage().split("-")[0];
             if (sLanguage === "it") {
                throw new Error("Non è possibile eseguire l''invio mail senza aver indicato alcun filtro"); // i18n>errorNoFilterSend
             } else {
@@ -177,9 +177,11 @@ sap.ui.define([
                     oResult.AgentCode !== "" && oResult.AgentCode !== undefined && oResult.AgentCode !== null ) {
                     xTitle = "Agente: " + oResult.AgentName + " - " + oResult.LogMessage;
                     xRefKey = oResult.AgentCode;
+//                  xDescription = "Agente: " + oResult.AgentName + " - " + oResult.LogMessage;
                     xCounter = oResult.ProcessedObj;
                 } else {
                     xTitle = oResult.LogMessage;
+//                  xDescription = oResult.LogMessage;
                 }
                 aModel.push({
                     type: xType,

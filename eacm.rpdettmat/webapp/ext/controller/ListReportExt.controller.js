@@ -31,5 +31,5 @@ sap.ui.define([
                 ); // Errore durante l'invio mail.
             }
         }
-    }); 
+    });
 });
