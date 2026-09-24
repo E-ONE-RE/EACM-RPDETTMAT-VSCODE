@@ -2,11 +2,17 @@ sap.ui.define([
     "sap/ui/core/mvc/ControllerExtension",
     "sap/m/MessageBox",
     "eacm/rpdettmat/ext/controller/PrintPdfHelper",
-    "eacm/rpdettmat/ext/controller/SendMailHelper"
-], function (ControllerExtension, MessageBox, PrintPdfHelper, SendMailHelper) {
+    "eacm/rpdettmat/ext/controller/SendMailHelper",
+    "eacm/rpdettmat/ext/controller/MessageLogHelper"
+], function (ControllerExtension, MessageBox, PrintPdfHelper, SendMailHelper, MessageLogHelper) {
     "use strict";
 
     return ControllerExtension.extend("eacm.rpdettmat.ext.controller.ListReportExt", {
+        override: { 
+            onInit: function () { 
+                MessageLogHelper.init(); 
+            } 
+        },
         // In lista il bottone usa i filtri gia applicati con GO
         // e chiede solo le opzioni booleane di stampa.
         downloadPdf: async function () {
