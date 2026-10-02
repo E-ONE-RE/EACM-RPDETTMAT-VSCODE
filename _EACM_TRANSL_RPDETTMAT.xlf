@@ -1,0 +1,140 @@
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="plaintext" original="/EACM/TRANSL_RPDETTMAT" source-language="en-US" target-language="it-IT">
+    <header>
+      <tool tool-company="SAP SE" tool-id="urn:x-sap:maintain-translations-fiori-app" tool-name="Maintain Translations Fiori App" tool-version="1.0.0"/>
+    </header>
+    <body>
+      <group datatype="x-DATA_DEFINITION" resname="/EACM/R_RPDETTMAT_PDF">
+        <trans-unit id="DATA_DEFINITION:/EACM/R_RPDETTMAT_PDF:ENDUSERTEXT.LABEL:ENTITY" maxwidth="40" size-unit="char">
+          <source>RPDETTMAT PDF download</source>
+          <target>RPDETTMAT PDF download</target>
+          <note>End user text label for entity /EACM/R_RPDETTMAT_PDF.</note>
+        </trans-unit>
+      </group>
+      <group datatype="x-DATA_DEFINITION" resname="/EACM/R_RPDETTMAT_MAIL">
+        <trans-unit id="DATA_DEFINITION:/EACM/R_RPDETTMAT_MAIL:ENDUSERTEXT.LABEL:ENTITY" maxwidth="40" size-unit="char">
+          <source>RPDETTMAT PDF mail sender</source>
+		  <target>RPDETTMAT PDF mail sender</target>
+          <note>End user text label for entity /EACM/R_RPDETTMAT_MAIL.</note>
+        </trans-unit>
+      </group>
+      <group datatype="x-DATA_DEFINITION" resname="/EACM/C_RPDETTMAT">
+        <trans-unit id="DATA_DEFINITION:/EACM/C_RPDETTMAT:ENDUSERTEXT.LABEL:ENTITY" maxwidth="40" size-unit="char">
+          <source>Dettaglio provvigioni maturate</source>
+          <target>Dettaglio provvigioni maturate</target>
+          <note>End user text label for entity /EACM/C_RPDETTMAT.</note>
+        </trans-unit>
+      </group>
+      <group datatype="x-DATA_DEFINITION" resname="/EACM/C_RPDETTMAT_FORM_G">
+        <trans-unit id="DATA_DEFINITION:/EACM/C_RPDETTMAT_FORM_G:ENDUSERTEXT.LABEL:ENTITY" maxwidth="40" size-unit="char">
+          <source>RPDETTMAT Form General Total By Class</source>
+          <target>RPDETTMAT Form General Total By Class</target>
+          <note>End user text label for entity /EACM/C_RPDETTMAT_FORM_G.</note>
+        </trans-unit>
+      </group>
+      <group datatype="x-DATA_DEFINITION" resname="/EACM/C_RPDETTMAT_FORM_C">
+        <trans-unit id="DATA_DEFINITION:/EACM/C_RPDETTMAT_FORM_C:ENDUSERTEXT.LABEL:ENTITY" maxwidth="40" size-unit="char">
+          <source>RPDETTMAT Form Currency</source>
+          <target>RPDETTMAT Form Currency</target>
+          <note>End user text label for entity /EACM/C_RPDETTMAT_FORM_C.</note>
+        </trans-unit>
+      </group>
+      <group datatype="x-DATA_DEFINITION" resname="/EACM/C_RPDETTMAT_FORM_T">
+        <trans-unit id="DATA_DEFINITION:/EACM/C_RPDETTMAT_FORM_T:ENDUSERTEXT.LABEL:ENTITY" maxwidth="40" size-unit="char">
+          <source>RPDETTMAT Form Agent Total By Class</source>
+          <target>RPDETTMAT Form Agent Total By Class</target>
+          <note>End user text label for entity /EACM/C_RPDETTMAT_FORM_T.</note>
+        </trans-unit>
+      </group>
+      <group datatype="x-DATA_DEFINITION" resname="/EACM/C_RPDETTMAT_FORM_I">
+        <trans-unit id="DATA_DEFINITION:/EACM/C_RPDETTMAT_FORM_I:ENDUSERTEXT.LABEL:ENTITY" maxwidth="40" size-unit="char">
+          <source>RPDETTMAT Form Item</source>
+          <target>RPDETTMAT Form Item</target>
+          <note>End user text label for entity /EACM/C_RPDETTMAT_FORM_I.</note>
+        </trans-unit>
+      </group>
+      <group datatype="x-DATA_DEFINITION" resname="/EACM/C_RPDETTMAT_FORM_A">
+        <trans-unit id="DATA_DEFINITION:/EACM/C_RPDETTMAT_FORM_A:ENDUSERTEXT.LABEL:ENTITY" maxwidth="40" size-unit="char">
+          <source>RPDETTMAT Form Agent</source>
+          <target>RPDETTMAT Form Agent</target>
+          <note>End user text label for entity /EACM/C_RPDETTMAT_FORM_A.</note>
+        </trans-unit>
+      </group>
+      <group datatype="x-DATA_DEFINITION" resname="/EACM/C_RPDETTMAT_FORM_U">
+        <trans-unit id="DATA_DEFINITION:/EACM/C_RPDETTMAT_FORM_U:ENDUSERTEXT.LABEL:ENTITY" maxwidth="40" size-unit="char">
+          <source>RPDETTMAT Form Customer</source>
+          <target>RPDETTMAT Form Customer</target>
+          <note>End user text label for entity /EACM/C_RPDETTMAT_FORM_U.</note>
+        </trans-unit>
+      </group>
+      <group datatype="x-DATA_DEFINITION" resname="/EACM/C_RPDETTMAT_FORM_H">
+        <trans-unit id="DATA_DEFINITION:/EACM/C_RPDETTMAT_FORM_H:ENDUSERTEXT.LABEL:ENTITY" maxwidth="40" size-unit="char">
+          <source>RPDETTMAT Form Header</source>
+          <target>RPDETTMAT Form Header</target>
+          <note>End user text label for entity /EACM/C_RPDETTMAT_FORM_H.</note>
+        </trans-unit>
+      </group>
+      <group datatype="x-DATA_DEFINITION" resname="/EACM/I_RPDETTMAT">
+        <trans-unit id="DATA_DEFINITION:/EACM/I_RPDETTMAT:ENDUSERTEXT.LABEL:ENTITY" maxwidth="40" size-unit="char">
+          <source>/EACM/I_RPDETTMAT - Dett.provv.maturate</source>
+          <target>/EACM/I_RPDETTMAT - Dett.provv.maturate</target>
+          <note>End user text label for entity /EACM/I_RPDETTMAT.</note>
+        </trans-unit>
+      </group>
+      <group datatype="x-METADATA_EXTENSION" resname="/EACM/MDE_C_RPDETTMAT">
+        <trans-unit id="METADATA_EXTENSION:/EACM/MDE_C_RPDETTMAT:UI.HEADERINFO.TYPENAME:ENTITY" maxwidth="40" size-unit="char">
+          <source>Accrued Commission</source>
+          <target>Provvigione Maturata</target>
+          <note>UI header information type name of entity /EACM/C_RPDETTMAT.</note>
+        </trans-unit>
+        <trans-unit id="METADATA_EXTENSION:/EACM/MDE_C_RPDETTMAT:UI.HEADERINFO.TYPENAMEPLURAL:ENTITY" maxwidth="40" size-unit="char">
+          <source>Accrued Commissions</source>
+          <target>Provvigioni Maturate</target>
+          <note>UI header information type name plural of entity /EACM/C_RPDETTMAT.</note>
+        </trans-unit>
+        <trans-unit id="METADATA_EXTENSION:/EACM/MDE_C_RPDETTMAT:UI.LINEITEM$1$.LABEL:FIELD:ZIPRV" maxwidth="40" size-unit="char">
+          <source>Amount tot.accrued</source>
+          <target>Importo tot. provvigioni</target>
+          <note>UI line item label for field ZIPRV of entity /EACM/C_RPDETTMAT.</note>
+        </trans-unit>
+        <trans-unit id="METADATA_EXTENSION:/EACM/MDE_C_RPDETTMAT:UI.FACET$1$.LABEL:FIELD:BUKRS" maxwidth="40" size-unit="char">
+          <source>General Information</source>
+          <target>Informazioni generali</target>
+          <note>UI facet label for field BUKRS of entity /EACM/C_RPDETTMAT.</note>
+        </trans-unit>
+      </group>
+      <group datatype="x-LTO_UIAD" resname="/EACM/ZPRMAT_UI5R">
+        <trans-unit id="LTO_UIAD:/EACM/ZPRMAT_UI5R:ALT_SMART_LINK_TITLE:RECORD:SUI_TM_MM_APPT:W1siQVBQX0lEIiwiL0VBQ00vWlBSTUFUX1VJNVIiXV0=" maxwidth="255" size-unit="char">
+          <source>Accrued Commissions Report</source>
+          <target>Report Provvigioni Maturate</target>
+          <note>The field ALT_SMART_LINK_TITLE is used as app title in launchpad app descriptor item</note>
+        </trans-unit>
+        <trans-unit id="LTO_UIAD:/EACM/ZPRMAT_UI5R:DESCRIPTION:RECORD:SUI_TM_MM_APPT:W1siQVBQX0lEIiwiL0VBQ00vWlBSTUFUX1VJNVIiXV0=" maxwidth="255" size-unit="char">
+          <source>Accrued Commissions Report</source>
+          <target>Report Provvigioni Maturate</target>
+          <note>The field DESCRIPTION is used as description in launchpad app descriptor item</note>
+        </trans-unit>
+        <trans-unit id="LTO_UIAD:/EACM/ZPRMAT_UI5R:TILE_TITLE:RECORD:SUI_TM_MM_APPATT:W1siQVBQX0lEIiwiL0VBQ00vWlBSTUFUX1VJNVIiXSxbIlRJTEVfSUQiLCIvRUFDTS9aUFJNQVRfVUk1Ul9BTCJdXQ==" maxwidth="255" size-unit="char">
+          <source>Accrued Commissions Report</source>
+          <target>Report Provvigioni Maturate</target>
+          <note>The field TILE_TITLE is used as tile title in launchpad app descriptor item</note>
+        </trans-unit>
+        <trans-unit id="LTO_UIAD:/EACM/ZPRMAT_UI5R:TILE_SUBTITLE:RECORD:SUI_TM_MM_APPATT:W1siQVBQX0lEIiwiL0VBQ00vWlBSTUFUX1VJNVIiXSxbIlRJTEVfSUQiLCIvRUFDTS9aUFJNQVRfVUk1Ul9BTCJdXQ==" maxwidth="255" size-unit="char">
+          <source>Accrued Commissions</source>
+          <target>Provvigioni Maturate</target>
+          <note>The field TILE_SUBTITLE is used as tile subtitle in launchpad app descriptor item</note>
+        </trans-unit>
+        <trans-unit id="LTO_UIAD:/EACM/ZPRMAT_UI5R:TILE_KEYWORDS:RECORD:SUI_TM_MM_APPATT:W1siQVBQX0lEIiwiL0VBQ00vWlBSTUFUX1VJNVIiXSxbIlRJTEVfSUQiLCIvRUFDTS9aUFJNQVRfVUk1Ul9BTCJdXQ==" maxwidth="255" size-unit="char">
+          <source/>
+          <target/>
+          <note>The field TILE_KEYWORDS is used as tile keywords in launchpad app descriptor item</note>
+        </trans-unit>
+        <trans-unit id="LTO_UIAD:/EACM/ZPRMAT_UI5R:TILE_INFORMATION:RECORD:SUI_TM_MM_APPATT:W1siQVBQX0lEIiwiL0VBQ00vWlBSTUFUX1VJNVIiXSxbIlRJTEVfSUQiLCIvRUFDTS9aUFJNQVRfVUk1Ul9BTCJdXQ==" maxwidth="255" size-unit="char">
+          <source/>
+          <target/>
+          <note>The field TILE_INFORMATION is used as tile information in launchpad app descriptor item</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

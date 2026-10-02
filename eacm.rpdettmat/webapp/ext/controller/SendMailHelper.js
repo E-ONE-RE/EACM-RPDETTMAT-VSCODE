@@ -3,14 +3,19 @@ sap.ui.define([
     "sap/m/CheckBox",
     "sap/m/Dialog",
     "sap/m/VBox",
+    "sap/m/Label",
+    "sap/m/Input",
+    "sap/m/TextArea",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/library",
     "eacm/rpdettmat/ext/controller/MessageLogHelper"
 // eslint-disable-next-line max-params
-], function (Button, CheckBox, Dialog, VBox, Filter, FilterOperator, JSONModel, coreLibrary, MessageLogHelper) {
+], function (Button, CheckBox, Dialog, VBox, Label, Input, TextArea, Filter, FilterOperator, JSONModel, coreLibrary, MessageLogHelper) {
     "use strict";
+
+    var MAIL_HTTP_URL = "/sap/bc/http/EACM/RPDETTMAT_HTTP_HDL?sap-client=100";  // Url del servizio HTTP /EACM/RPDETTMAT_HTTP_HDL
 
     var MessageType = coreLibrary.MessageType;
 
@@ -20,8 +25,11 @@ sap.ui.define([
     function _buildOptionsModel() {
         return new JSONModel({
             DetailPrint: false,
+//          PrintWithDueDate: false,
             IncludeBlocked: false,
-            IncludeAntMinReceived: false
+            IncludeAntMinReceived: false,
+            MailTitle: "",
+            MailBody: ""
         });
     }
 
@@ -31,7 +39,10 @@ sap.ui.define([
             var oModel = _buildOptionsModel();
             var oDialog = new Dialog({
                 title: "{i18n>dialogTitle2}",
-                contentWidth: "26rem",
+				resizable: true,
+                draggable: true,
+            	contentWidth: "40%",
+	            contentHeight: "60%",
                 content: new VBox({
                     items: [
                         new CheckBox({
@@ -45,12 +56,58 @@ sap.ui.define([
                         new CheckBox({
                             text: "{i18n>antMinReceivedText}",
                             selected: "{/IncludeAntMinReceived}"
+                        }),
+                        new sap.m.FlexBox({
+                            height: "20px"
+                        }),
+                        new Label({
+                            text: "{i18n>objectText}"
+                        }),
+                        new Input({
+                            placeholder: "{i18n>insertObject}",
+                            value: "{/MailTitle}",                     
+                            type: "Text",
+                            required: true,
+                            valueState: "Error",
+                            valueStateText: "{i18n>objectRequired}",
+                            width: "100%"
+                        }).addStyleClass("sapUiSmallMarginBottom"),
+                        new Label({
+                            text: "{i18n>bodyText}"
+                        }),
+                        new TextArea({
+                            placeholder: "{i18n>insertBody}",
+                            value: "{/MailBody}",      
+                            required: true,
+                            valueState: "Error",
+                            valueStateText: "{i18n>bodyRequired}",
+                            growing: true,
+                            width: "100%",
+                            rows: 8
+                        }).addStyleClass("sapUiSmallMarginBottom"),
+                        new Label({
+                            text: "{i18n>jollyText}"
+                        }),
+                        new TextArea({
+                            value: "{i18n>jollyValues}",
+                            editable: false,
+                            width: "100%",
+                            rows: 4
                         })
                     ]
                 }),
                 beginButton: new Button({
                     text: "{i18n>confirmButtonText}",
                     type: "Emphasized",
+                    enabled: {
+                        parts: [
+                            { path: "/MailTitle" },
+                            { path: "/MailBody" }
+                        ],
+                        formatter: function (sTitle, sBody) {
+                            return !!sTitle?.trim() && !!sBody?.trim();
+                        }
+                    },
                     press: function () {
                         resolve(oModel.getData());
                         oDialog.close();
@@ -109,25 +166,177 @@ sap.ui.define([
             throw new Error(MessageLogHelper.i18nText("{i18n>errorNoFilterSend}"));
        }
 
-        aFilters.push(new Filter("DetailPrint", FilterOperator.EQ, !!mOptions.DetailPrint));
-        aFilters.push(new Filter("IncludeBlocked", FilterOperator.EQ, !!mOptions.IncludeBlocked));
-        aFilters.push(new Filter("IncludeAntMinReceived", FilterOperator.EQ, !!mOptions.IncludeAntMinReceived));
-
         return aFilters;
     }
 
-    async function _sendMailFromListReport(oExtensionAPI, mOptions) {
-        var oModel = oExtensionAPI.getModel();
-        var aFilters = _buildMailSenderFilters(oExtensionAPI, mOptions);
-        // Non si leggono le righe HTML gia caricate in tabella:
-        // si rimandano al backend i filtri attivi, cosi il dataset e completo anche con paging server-side.
-        var oListBinding = oModel.bindList("/MailSender", undefined, undefined, aFilters, {
-            $select: "AgentCode,AgentName,StatusCode,LogMessage,ProcessedObj"
+    function _buildMailSenderFiltersJson(aFilters) {
+        var aConditions = [];
+
+        var mOperatorMap = {
+            EQ: "EQ",
+            NE: "NE",
+            GT: "GT",
+            GE: "GE",
+            LT: "LT",
+            LE: "LE",
+            BT: "BT",
+            NB: "NB",
+            Contains: "CP",
+            NotContains: "NP",
+            StartsWith: "CP",
+            EndsWith: "CP"
+        };
+
+        function _formatValue(vValue, sOperator) {
+            if (vValue === null || vValue === undefined) {
+                return "";
+            }
+            if (vValue instanceof Date) {
+                return vValue.toISOString().slice(0, 10).replace(/-/g, "");
+            }
+            var sValue = String(vValue);
+            if (sOperator === "Contains") {
+                return "*" + sValue + "*";
+            }
+            if (sOperator === "NotContains") {
+                return "*" + sValue + "*";
+            }
+            if (sOperator === "StartsWith") {
+                return sValue + "*";
+            }
+            if (sOperator === "EndsWith") {
+                return "*" + sValue;
+            }
+            return sValue;
+        }
+
+        function _processFilter(oFilter) {
+            if (!oFilter) {
+                return;
+            }
+
+            // Gestione di gruppi di filtri annidati
+            if (Array.isArray(oFilter.aFilters) && oFilter.aFilters.length) {
+                oFilter.aFilters.forEach(_processFilter);
+                return;
+            }
+
+            var sPath = oFilter.sPath;
+            var sOperator = oFilter.sOperator;
+
+            if (!sPath || !sOperator) {                
+                throw new Error(MessageLogHelper.i18nText("{i18n>errorUnsupportedFilter}"));
+            }
+
+            var sOption = mOperatorMap[sOperator];
+
+            if (!sOption) {
+                throw new Error(MessageLogHelper.i18nText("{i18n>errorUnsupportedOperator}") + sOperator);
+            }
+
+            aConditions.push({
+                field: sPath,
+                sign: "I",
+                option: sOption,
+                low: _formatValue(oFilter.oValue1, sOperator),
+                high: _formatValue(oFilter.oValue2, sOperator)
+            });
+        }
+
+        aFilters.forEach(_processFilter);
+
+        return JSON.stringify({
+            conditions: aConditions
         });
+    }
+
+
+    // eslint-disable-next-line max-statements, complexity
+    async function _sendMailFromListReport(oExtensionAPI, mOptions) {
+
+        var aFilters = _buildMailSenderFilters(oExtensionAPI, mOptions);
+
+        // Conversione dei filtri UI5 nel formato atteso dal backend.
+        var sFiltersJson = _buildMailSenderFiltersJson(aFilters);
+
+        var aResults = [];
 
         try {
             MessageLogHelper.showBusy("{i18n>busyDialogText}");
-            var aContexts = await oListBinding.requestContexts(0, 0);
+
+            // Preparazione della richiesta HTTP.
+            var oPayload = {
+                DetailPrint: mOptions.DetailPrint,
+                PrintWithDueDate: mOptions.PrintWithDueDate,
+                MailTitle: mOptions.MailTitle,
+                MailBody: mOptions.MailBody,
+                FiltersJson: sFiltersJson
+            };
+
+            // Invocazione sincrona dal punto di vista funzionale.
+            // Il backend esegue SEND_MAIL e restituisce il log completo.
+            var oResponse = await fetch(MAIL_HTTP_URL, {
+                method: "POST",
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(oPayload)
+            });
+
+            var sResponseText = await oResponse.text();
+            var oResponseData;
+
+            // Conversione della risposta JSON.
+            try {
+                oResponseData = JSON.parse(sResponseText);
+            } catch (oParseError) {
+//              throw new Error(MessageLogHelper.i18nText("{i18n>invalidHttpResponse}") + oParseError.message);
+                MessageLogHelper.showMessages([{
+                    type: MessageType.Error,
+                    title: "{i18n>invalidHttpResponse}",
+                    description: oParseError && oParseError.message ? oParseError.message : ""
+                }]);
+                return;
+            }
+
+            // Gestione degli errori tecnici HTTP.
+            if (!oResponse.ok) {
+                var sErrorMessage =
+                    oResponseData && oResponseData.error
+                        ? oResponseData.error
+                        : sResponseText;
+//              throw new Error(MessageLogHelper.i18nText("{i19n>errorHttp}") + oResponse.status + ": " + sErrorMessage);
+                MessageLogHelper.showMessages([{
+                    type: MessageType.Error,
+                    title: "{i18n>errorHttp}" + oResponse.status,
+                    description: oResponse && sErrorMessage ? sErrorMessage : ""
+                }]);
+                return;
+            }
+
+            // Il servizio ABAP restituisce direttamente un array JSON.
+            if (Array.isArray(oResponseData)) {
+                aResults = oResponseData;
+            } else if (oResponseData && Array.isArray(oResponseData.value)) {
+                aResults = oResponseData.value;
+            } else if (oResponseData && Array.isArray(oResponseData.results)) {
+                aResults = oResponseData.results;
+            }
+
+            // Normalizzazione dei nomi dei campi restituiti da ABAP.
+            // La serializzazione ABAP può produrre proprietà maiuscole.
+            aResults = aResults.map(function (oResult) {
+                return {
+                    AgentCode: oResult.AgentCode ?? oResult.AGENTCODE ?? "",
+                    AgentName: oResult.AgentName ?? oResult.AGENTNAME ?? "",
+                    StatusCode: oResult.StatusCode ?? oResult.STATUSCODE ?? "",
+                    LogMessage: oResult.LogMessage ?? oResult.LOGMESSAGE ?? "",
+                    ProcessedObj: oResult.ProcessedObj ?? oResult.PROCESSEDOBJ ?? 0
+                };
+            });
+
         } catch (oError) {
             MessageLogHelper.showMessages([{
                 type: MessageType.Error,
@@ -135,10 +344,11 @@ sap.ui.define([
                 description: oError && oError.message ? oError.message : ""
             }]);
             return;
+
         } finally {
             MessageLogHelper.hideBusy();
         }
-        var oContext;
+
         var oResult;
         var error = false;
 		var xType = "";
@@ -146,10 +356,9 @@ sap.ui.define([
         var xRefKey = "";
         var xDescription = "";
         var xCounter = 0;
-
         var aModel = [];
 
-        if (!aContexts.length) {
+        if (!aResults.length) {
             MessageLogHelper.showMessages([{
                 type: MessageType.Error,
                 title: "{i18n>errorNoDataFound}",
@@ -157,11 +366,10 @@ sap.ui.define([
             }]);
             return;
         } else {
-            for (var i = 0; i < aContexts.length; i++) {
+            for (var i = 0; i < aResults.length; i++) {
                 xType = xTitle = xRefKey = xDescription = "";
                 xCounter = 0;
-                oContext = aContexts[i];
-                oResult = oContext.getObject();
+                oResult = aResults[i];
                 if (oResult && oResult.StatusCode !== "S") {
                     error = true;
                     xType = MessageType.Error;
