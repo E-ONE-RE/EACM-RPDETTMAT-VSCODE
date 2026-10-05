@@ -7,3 +7,8 @@ Elenco degli sviluppi:
 - Tasto di Stampa PDF
 - Tasto di invio e-mail
 - Traduzioni
+
+----------------------------------------
+impostare il numero della CR esistente
+nel file ui5-deploy.yaml [ transport: ]
+----------------------------------------
